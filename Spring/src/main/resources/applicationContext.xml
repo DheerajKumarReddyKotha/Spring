@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Load peoperties file:sport.properties -->
+	<context:property-placeholder location="classpath:sport.properties"/>
+	
+	<!-- Annotation based configuration - add entry for component scanning -->
+	<context:component-scan base-package="com.asura.spring" />
+	
+    <!-- Define your beans here -->
+	<bean id="myFortune"
+		class="com.asura.spring.HappyFortune">
+	</bean>
+	
+	<bean id="cricketCoach"
+		class="com.asura.spring.CricketCoach">
+		<!-- set up setter injection -->
+		<property name="fortuneService" ref="myFortune"></property>
+		<!-- Inject Literal values -->
+		<property name="emailAddress" value="${asura.email}"></property>
+		<property name="team" value="${asura.team}"></property>
+	</bean>
+	
+	<bean id="baseBallCoach"
+		class="com.asura.spring.BaseballCoach" scope="prototype">
+		
+		<!-- Set up constructor Injection -->
+		<constructor-arg ref="myFortune" ></constructor-arg>
+	</bean>
+	
+	<bean id="trackCoach"
+		class="com.asura.spring.TrackCoach" 
+		init-method="doMyStartupStuff" 
+		destroy-method="doMyCleanupStuff">
+		<constructor-arg ref="myFortune"></constructor-arg>
+	</bean>
+	
+	<!-- Assign values to array -->
+	<bean id="testFortuneImpl"
+		class="com.asura.spring.test.TestFortuneImpl">
+		<property name="fortuneArray">
+			<array>
+				<value>${asura.fortuneOne}</value>
+				<value>${asura.fortuneTwo}</value>
+				<value>${asura.fortuneThree}</value>
+			</array>
+		</property>
+	</bean>
+</beans>
+
+
+
+
+
