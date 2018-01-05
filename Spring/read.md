@@ -1,97 +1,43 @@
-package com.asura.spring;
+SPRING FRAMEWORK
 
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-public class SpringApp {
-
-	public static void main(String[] args) {
-		//load spring configuration file
-		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		
-		//retrieve bean from spring container
-		Coach baseBallCoach = context.getBean("baseBallCoach",Coach.class); //Coach interface is specified so that spring will cast the object for you.
-		
-		//call methods on the bean
-		System.out.println(baseBallCoach.getDailyWorkout());
-		
-		System.out.println(baseBallCoach.getDailyFortune());
-		
-		Coach trackCoach = context.getBean("trackCoach", Coach.class);
-		
-		System.out.println(trackCoach.getDailyWorkout());
-		System.out.println(trackCoach.getDailyFortune());
-		
-		CricketCoach cricketCoach = context.getBean("cricketCoach",CricketCoach.class);
-		
-		System.out.println(cricketCoach.getDailyWorkout());
-		System.out.println(cricketCoach.getDailyFortune());
-		System.out.println(cricketCoach.getEmailAddress());
-		System.out.println(cricketCoach.getTeam());
-		
-		//Scope:Prototype test
-		BaseballCoach baseBallCoachOne = context.getBean("baseBallCoach",BaseballCoach.class); 
-		BaseballCoach baseBallCoachTwo = context.getBean("baseBallCoach",BaseballCoach.class); 
-		
-		Boolean result = (baseBallCoachOne == baseBallCoachTwo);
-		System.out.println(result);
-		
-		System.out.println("\n Memory Location for baseBallCoachOne: "+baseBallCoachOne);
-		System.out.println("\n Memory Location for baseBallCoachTwo: "+baseBallCoachTwo);
-		
-		//Annotation based TennisCoach class
-		Coach theTennisCoach = context.getBean("tennisCoach", Coach.class);
-		
-		System.out.println(theTennisCoach.getDailyWorkout());
-		System.out.println(theTennisCoach.getDailyFortune());
-		
-		//close context.
-		context.close();
-	}
-
-}
-
-/*
-What is Spring?
+1. What is Spring?
 a) It is a framework, accurately it is a light weight framework.
 b) It is also known as framework of frameworks as it provides support to various other frameworks like 
 JSF,EJB,HIBERNATE,STRUTS etc.
 
-What is a Spring Bean?
+2. What is a Spring Bean?
 It is simply a java object.
 When java objects are created by spring container, the spring refers to them as "Spring Beans".
 
-What are the different modules available in Spring Framework?
-1. Spring Core Container
-	a) Core - This module provides support for IOC and Dependency Injection features.
-	b) Beans - This module provides support for IOC and Dependency Injection features.
-	c) Context - This module supports internationalization (I18N), EJB, JMS, Basic Remoting.
-	d) Expression Language - It is an extension to the EL defined in JSP. It provides support to setting 
-	and getting property values, method invocation, accessing collections and indexers, named variables, 
-	logical and arithmetic operators, retrieval of objects by name etc.
-2. Aspect Oriented Programming - These modules support aspect oriented programming implementation where you 
-	can use Advices, Pointcuts etc. to decouple the code.
-3. Aspects - The aspects module provides support to integration with AspectJ.
-4. Instrumentation - The instrumentation module provides support to class instrumentation and classloader 
+3. What are the different modules available in Spring Framework?
+	1. Spring Core Container
+		a) Core - This module provides support for IOC and Dependency Injection features.
+		b) Beans - This module provides support for IOC and Dependency Injection features.
+		c) Context - This module supports internationalization (I18N), EJB, JMS, Basic Remoting.
+		d) Expression Language - It is an extension to the EL defined in JSP. It provides support to setting 
+		and getting property values, method invocation, accessing collections and indexers, named variables, 
+		logical and arithmetic operators, retrieval of objects by name etc.
+	2. Aspect Oriented Programming - These modules support aspect oriented programming implementation where 	you can use Advices, Pointcuts etc. to decouple the code.
+	3. Aspects - The aspects module provides support to integration with AspectJ.
+	4. Instrumentation - The instrumentation module provides support to class instrumentation and 	classloader 
 	implementations.
-5. Data Access/Integration - These modules basically provide support to interact with the database.
+	5. Data Access/Integration - These modules basically provide support to interact with the database.
 	a)JDBC
 	b) ORM
 	c) JMS
 	d) OXM
 	e) Transactions
-6. WEB - These modules provide support to create web application.
+	6. WEB - These modules provide support to create web application.
 	a) web
 	b) Servlet
 	c) Portlet
 	d) Struts
-7. Test - This layer provides support for JUnit and TestNG.
+	7. Test - This layer provides support for JUnit and TestNG.
 
-What is Inversion Of Control container?
-a) It is responsible to instantiate, configure and assemble the objects.
-b) It gets information from XML File.
-c) The main tasks performed by IOC Containers are i) instantiate the application class 
+4. What is Inversion Of Control container?
+	a) It is responsible to instantiate, configure and assemble the objects.
+	b) It gets information from XML File.
+	c) The main tasks performed by IOC Containers are i) instantiate the application class 
 												 ii) configure the object 
 												 iii) assemble dependencies between objects
 Step 1: Instantiating a Spring Container
@@ -101,7 +47,7 @@ b) Specialized implementations
     ii) AnnotationConfigApplicationContext
     iii) Generic web application Context
     
-    ClassPathXmlApplicationContext context = new ClassPathApplicationContext("applicationContext.xml");
+    ClassPathXmlApplicationContext context = new 						ClassPathApplicationContext("applicationContext.xml");
     
 Step 2: Configuring your spring beans
 There are three ways to configuring Spring Container
@@ -121,9 +67,9 @@ Types of IOC Containers:
 a) BeanFactory
 b) ApplicationContext
 
-Difference between BeanFactory and ApplicationContext?
-Both are interfaces and acts as IOC Containers. Application Context is build on top of BeanFactory and 
-has some additional features like AOP,Message source handling and event propagation.
+5. Difference between BeanFactory and ApplicationContext?
+	Both are interfaces and acts as IOC Containers. Application Context is build on top of BeanFactory and 
+	has some additional features like AOP,Message source handling and event propagation.
 
 Using BeanFactory:
 XmlBeanFactory is the implementation class for BeanFactory.
@@ -135,7 +81,7 @@ ClassPathXmlApplicationContext class is the implementation class of ApplicationC
 ApplicationContext context =   
     new ClassPathXmlApplicationContext("applicationContext.xml");  
 
-What is Dependency Injection?
+6. What is Dependency Injection?
 It is a design pattern that removes the dependency of programming code so that it can be easily manage and 
 test the application.It makes our code loosely coupled.
 
@@ -162,7 +108,7 @@ Step 1: Create the properties file
 Step 2: Load properties file in spring config file
 Step 3: Reference values from properties file.
 
-What are Bean Scopes?
+7. What are Bean Scopes?
 a) Scope refers to life cycle of bean
 b) How long does bean live?
 c) How many instances are created?
@@ -180,7 +126,7 @@ c) request - scope to HTTP web request.
 d) session - scope to HTTP web session.
 e) global-session - scope to global HTTP web session.
 
-Bean Lifecycle:
+8. Bean Lifecycle
 
 Container Started -> Bean Instantiated -> Dependencies Injected -> Internal Spring Processing -> your custom Init Method
 -> Bean is ready for use/Container ShutDown -> custom destroy method -> Stop
@@ -192,13 +138,13 @@ Step 2: Configure the method names in spring config file.
 Note: In case of prototype scope, spring does not call destroy method, it creates the bean and hands it to 
 client. 
 
-Spring with JAVA Annotations
+9. Spring with JAVA Annotations
 
 1. Special labels/markers added to Java classes.
 2. Provide meta-data about the class.
 3. Processed at compile-time or run-time for special processing.
 
-Why Spring Configuration withAnnotations?
+10. Why Spring Configuration withAnnotations?
 a) XML Configuration can be verbose.
 b) Configure your spring beans with Annotations
 c) Annotations minimizes XML Configurations
@@ -226,9 +172,9 @@ public String getDailyWorkout(){
 Step 3: Retrieve bean from spring container
 Coach theTennisCoach = context.getBean("tennisCoach", Coach.class);
 
-Spring dependency Injection with Annotations and Auto wiring:
+11. Spring dependency Injection with Annotations and Auto wiring
 
-1. What is Spring AutoWiring?
+What is Spring AutoWiring?
 a) For dependency injection, Spring can use auto wiring.
 b) Spring will look for the class that matches that property
 	matches by type: class or interface
@@ -257,7 +203,7 @@ How to inject values from properties file?
 @value("${asura.email}")
 private String email;
 
-Bean Scope with Annotations:
+12. Bean Scope with Annotations:
 a) Scope refers to life cycle of bean
 b) scope of the Bean (singleton/prototype)
 c) How long does bean live?
@@ -275,12 +221,12 @@ Development Process:
 a) Define init and destroy methods
 b) Add annotations : @PostConstruct , @PreDestroy
 
-Spring Configuration with java code:
+13. Spring Configuration with java code
 
 a) Instead of configuring spring container using XML.
 b) Configure spring container with java code.
 
-Three ways of Configuring Spring Contaner
+Three ways of Configuring Spring Container
 a) Full XML Config
 b) XML Component Scan
 c) Java Configuration Class
@@ -291,7 +237,7 @@ Step 2: Add component scanning support @ComponentScan
 Step 3: Read Spring Java configuration class
 Step 4: Retrieve bean from Spring Container.
 
-Define beans using spring code
+14. Define beans using spring code
 
 Step 1: Define method to expose bean
 Step 2: Inject bean dependencies
@@ -303,4 +249,3 @@ Step 1: Create a properties file
 Step 2: Load properties file using annotation @PropertySource("classpath:sport.properties")
 Step 3: Reference values using @Value annotation Ex: @Value("$asura.email")
 
-**/
