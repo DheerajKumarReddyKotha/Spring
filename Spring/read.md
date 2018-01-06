@@ -40,6 +40,7 @@ When java objects are created by spring container, the spring refers to them as 
 	c) The main tasks performed by IOC Containers are i) instantiate the application class 
 												 ii) configure the object 
 												 iii) assemble dependencies between objects
+
 Step 1: Instantiating a Spring Container
 a) Spring container is generally known as Application Context
 b) Specialized implementations
