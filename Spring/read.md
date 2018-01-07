@@ -17,7 +17,7 @@ When java objects are created by spring container, the spring refers to them as 
 		d) Expression Language - It is an extension to the EL defined in JSP. It provides support to setting 
 		and getting property values, method invocation, accessing collections and indexers, named variables, 
 		logical and arithmetic operators, retrieval of objects by name etc.
-	2. Aspect Oriented Programming - These modules support aspect oriented programming implementation where 	you can use Advices, Pointcuts etc. to decouple the code.
+	2. Aspect Oriented Programming - These modules support aspect oriented programming implementation where you can use Advices, 		Pointcuts etc. to decouple the code.
 	3. Aspects - The aspects module provides support to integration with AspectJ.
 	4. Instrumentation - The instrumentation module provides support to class instrumentation and 	classloader 
 	implementations.
@@ -249,4 +249,87 @@ Inject values from properties files:
 Step 1: Create a properties file
 Step 2: Load properties file using annotation @PropertySource("classpath:sport.properties")
 Step 3: Reference values using @Value annotation Ex: @Value("$asura.email")
+
+SPRING MVC
+
+1. What is Spring MVC?
+	a) Framework for building web applications in java
+	b) Based on Model-View-Controller design pattern
+	c) Leverages the features of Core Spring Framework (IoC,DI)
+	
+	Web Browser -> Front Controller ->(Model) Controller -> (Model) View Template -> Web Browser
+	
+2. What are the Benefits of Spring MVC?
+	a) Spring way of building web apps UIs in Java
+	b) Leverage a set of UI components
+	c) Help manage application state for web requests
+	d) Process form data: validation, conversion etc
+	e) Flexible configuration for view layer
+	
+3. Components of Spring MVC Application
+	a) A set of web pages to layout UI Components
+	b) A collection of Spring Beans (Controller, services, etc...)
+	c) Spring configuration (XML, Annotation or Java)
+	
+Spring MVC Front Controller
+a) It is also known Dispatcher Servlet
+b) It is part of spring framework
+
+As a developer you will create
+a) Model Objects
+b) View Templates 
+c) Controller classes
+
+Controller:
+a) Code created by developer
+b) Contains your business logic
+	i) Handle the web request
+	ii) Store/retrieve data
+	iii) Place data in model
+c) Send to appropriate view template
+
+Model:
+a) It contains data
+b) Store/retrieve data via backend systems
+	i) database,web service etc...
+	ii) Use spring bean if you like
+c) Place your data in model
+
+View Template:
+a) Spring MVC is flexible
+b) Supports many view templates
+c) Most common is JSP + JSTL
+d) Developer creates a page and displays data
+
+other view templates supported are Thymeleaf,Groovy,Velocity,Freemarker etc...
+
+4. How to configure Spring MVC?
+Add configurations file to WEB-INF/web.xml
+
+a) Configure Spring MVC Dispatcher Servlet.
+b) Set Up URL mappings to Spring MVC Dispatcher Servlet.
+c) Add support for Spring Component Scanning.
+d) Add support for conversion,formatting and validation
+e) Configure Spring MVC View resolver.
+
+Development Process:
+Step 1: Create controller class
+Step 2: Define Controller Method
+Step 3: Add request mapping to controller method
+Step 4: Return view name
+Step 5: Develop view page
+
+5. How to read form data using Spring MVC?
+Development Process:
+a) Create a Controller class
+b) Show HTML Form
+	i) Create a controller method to show HTML form
+	ii) Create a view page for HTML form
+c) Process HTML form
+	i) create controller method to process HTML form
+	ii) Develop view page for confirmation
+	
+
+
+
 
