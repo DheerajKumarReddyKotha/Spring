@@ -4,14 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Student Main Form</title>
+<title>Student Confirmation</title>
 </head>
 <body>
-	<h1>Welcome to Spring MVC</h1>
-	<a href="showForm">Index Form</a>
-	<br><br>
-	
-	<h1>Student Enrollment Form</h1>
-	<a href="student/enrollment">Student Enrollment Form</a>
+	SuccesssFully Enrolled!!
+<br><br>
+	First Name: ${student.firstName}
+<br><br>
+	Last Name : ${student.lastName}
+<br><br>
+	Country : ${student.country}
+<br><br>
+	Favorite Language : ${student.favoriteLanguage}
+<br><br>
 </body>
 </html>

@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Student Output Form</title>
 </head>
 <body>
 	SuccesssFully Submitted!!
 <br><br>
 	Student name: ${param.studentName}
+<br><br>
+	The Message : ${message}
 </body>
 </html>

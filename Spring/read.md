@@ -329,6 +329,38 @@ c) Process HTML form
 	i) create controller method to process HTML form
 	ii) Develop view page for confirmation
 	
+6. How to add data to Spring Model?
+a) The model is a container for your application data
+b) In your controller you can put anything in the model like Strings,objects, info from database
+c) Your view pages can access data from model.
+
+Code Example
+a) We want to create a new method to process form data.
+b) Read the form data
+c) Convert the name to upper case
+d) Add upper case version to the model.
+
+7. How to read Html form data using @RequestParam Annotation?
+a) We want to create a new method to process form data.
+b) Read the form data
+c) Convert the name to upper case
+d) Add upper case version to the model.
+
+Controller RequestMapping
+a) Serves as parent mapping for Controller
+b) All requests mappings on methods in the controller are relative
+c) Similar to folder structures
+
+8. Spring MVC Form tags?
+a) These are the building blocks for a web page
+b) Form tags are configurable and reusable for a web page
+
+Data Binding
+a) They make use of data binding
+b) automatically set data and retrieve data from beans
+
+form,input,textarea,checkbox,radiobutton..
+
 
 
 
