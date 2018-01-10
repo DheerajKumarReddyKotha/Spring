@@ -26,7 +26,13 @@
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	<bean id="messageSource" 
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+	
+		<property name="basenames" value="messages" ></property>
+	</bean>
 	<util:properties id="countryOptions" location="classpath:../countries.properties" />
+	
 </beans>
 
 

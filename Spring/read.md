@@ -361,7 +361,60 @@ b) automatically set data and retrieve data from beans
 
 form,input,textarea,checkbox,radiobutton..
 
+8. Spring MVC Validation?
+a) Validate required fields
+b) validate numbers in range
+c) validate post code
 
+Java's standard Bean Validation API
+a) This defines metadata model and API for entity validation
+b) not tied to either web tier or the persistence tier
+c) Available for server side and also cient side.
 
+Spring and Validation
+a) Spring version 4 and higher supports Bean Validation API
+b) Preferred method for validation when building spring apps
+c) Simply add validation JARs to our project.
 
+Bean validation Features:
+a) required
+b) validate length
+c) validate numbers
+d) validate with regular expressions
+e) custom validation
+
+Validation Annotations
+@NotNull - checks that annotated value is not null
+@Min - Must be a number >= value
+@Max - Must be a number <= value
+@Size - size must match given size
+@Pattern - Must match a regular expression pattern
+@Future/@Past -  Date must be future or past
+
+Development Process:
+
+Hibernate is implementation for JSR-303/309 implementation
+Not tied to ORM
+
+Step 1: Download Validation JAR files from Hibernate website
+Step 2: Add JAR files to project
+Step 3: Add validation rule to customer class
+Step 4: Display error message on HTML form
+Step 5: Perform validation in the controller class
+Step 6: Update Confirmation page
+
+Spring MVC Validation with @InitBinder
+- This is used to trim white spaces
+
+@InitBinder
+a) It works as a pre-processor
+b) It will pre-process each web request to our controller
+c) This will get executed
+
+- It will trim leading and trailing white spaces
+- If a string has all white spaces trim it to null
+
+* Validation for Number using @min @max
+
+* Validation with regularExpression
 

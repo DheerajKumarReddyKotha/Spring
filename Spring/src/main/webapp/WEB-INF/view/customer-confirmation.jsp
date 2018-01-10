@@ -4,19 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Student Main Form</title>
+<title>Customer-Confirmation</title>
 </head>
 <body>
-	<h1>Welcome to Spring MVC</h1>
-	<a href="showForm">Index Form</a>
-	<br><br>
-	
-	<h1>Student Enrollment Form</h1>
-	<a href="student/enrollment">Student Enrollment Form</a>
-	<br><br>
-	
-	<h1>Customer Form</h1>
-	<a href="customer/showForm">Customer Form</a>
-	
+	SuccesssFully Enrolled!!
+<br><br>
+	First Name: ${customer.firstName}
+<br><br>
+	Last Name : ${customer.lastName}
+<br><br>
+	Free Passes : ${customer.freePasses}
+<br><br>
+	Postal Code : ${customer.postalCode}
+<br><br>
 </body>
 </html>
