@@ -418,3 +418,16 @@ c) This will get executed
 
 * Validation with regularExpression
 
+9. Spring MVC Custom Validation?
+a) Create our own custom validation rule
+Ex: Course code must start with "LUV"
+b) Spring MVC calls our custom validation
+c) Custom validation returns boolean value for pass/fail
+
+We are creating our own custom annotation for validation
+Ex: @CourseCode
+
+@CourseCode(value="LUV", message="start with LUV")
+private String courseCode;
+
+

@@ -22,6 +22,7 @@ public class CustomerController {
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
+	
 	@RequestMapping("/showForm")
 	public String showForm(Model model) {
 		model.addAttribute("customer", new Customer());
